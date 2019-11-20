@@ -8,4 +8,10 @@ Sample app showing the power of structured logging.
    docker-compose up
    ```
 
+   Alternativly run it with Greylog.
+
+   ```bash
+   docker-compose -f docker-compose.yml -f docker-compose.greylog.yml up
+   ```
+
 1. Open <http://localhost:8080> in a browser several times.
