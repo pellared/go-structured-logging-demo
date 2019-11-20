@@ -8,6 +8,12 @@ Sample app showing the power of structured logging.
    docker-compose up
    ```
 
+   Alternativly run it with Seq.
+
+   ```bash
+   docker-compose -f docker-compose.yml -f docker-compose.seq.yml up
+   ```
+
    Alternativly run it with Greylog.
 
    ```bash
