@@ -2,6 +2,7 @@ package main
 
 import (
 	"errors"
+	"fmt"
 	"io"
 	"math/rand"
 	"net/http"
@@ -56,7 +57,7 @@ func try() error {
 		X int
 		Y int
 	}{
-		rand.Intn(3),
+		rand.Intn(2),
 		rand.Intn(3),
 	}
 	if p.X != p.Y {
@@ -68,8 +69,8 @@ func try() error {
 
 func logMiddleware(next http.Handler) http.Handler {
 	return http.HandlerFunc(func(w http.ResponseWriter, r *http.Request) {
-		// add a random reqID field for each request
-		reqID := rand.Int()
+		// add a pseudo-random reqID field for each request
+		reqID := fmt.Sprintf("%x", rand.Int63())
 		logEntry := logctx.Default.WithField("reqID", reqID)
 		logEntry.Info("request started")
 
